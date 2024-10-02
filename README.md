@@ -32,7 +32,7 @@ Follow the steps below to set up the project on your local machine and run it:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/JosephDoUrden/Book-Store-Project
+git clone https://github.com/harsh02it/Book-Store-Project
 cd book-store-project
 ```
 
