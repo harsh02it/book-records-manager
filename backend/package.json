@@ -9,7 +9,7 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Yusufhan Sacak",
+  "author": "Harshit Savani",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
