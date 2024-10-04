@@ -1,5 +1,5 @@
 import express, { request, response } from "express";
-import { PORT, mongoDBURL } from "./config.js";
+import { PORT, mongoDBURL, FRONTEND_URL } from "./config.js";
 import mongoose from "mongoose";
 import { Book } from "./models/bookModel.js";
 import booksRoute from "./routes/booksRoute.js";
@@ -11,7 +11,11 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-app.use(cors());
+app.use(
+  cors({
+    origin: "FRONTEND_URL",
+  })
+);
 // app.use(
 //   cors({
 //     origin: "https://localhost:3000",
