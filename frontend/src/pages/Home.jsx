@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/books")
+      .get(`${process.env.REACT_APP_API_URL}/books`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
