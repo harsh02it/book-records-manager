@@ -32,7 +32,11 @@ app.get("/", (request, response) => {
 app.use("/books", booksRoute);
 
 mongoose
-  .connect(mongoDBURL)
+  .connect(mongoDBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    poolSize: 10,
+  })
   .then(() => {
     console.log("App connected to db");
     app.listen(PORT, () => {
