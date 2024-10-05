@@ -33,9 +33,7 @@ app.use("/books", booksRoute);
 
 mongoose
   .connect(mongoDBURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    poolSize: 10,
+    maxPoolSize: 10,
   })
   .then(() => {
     console.log("App connected to db");
@@ -44,5 +42,5 @@ mongoose
     });
   })
   .catch((error) => {
-    console.log(error);
+    console.log("Error connecting to the database:", error);
   });
