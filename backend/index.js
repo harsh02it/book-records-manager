@@ -31,25 +31,33 @@ app.get("/", (request, response) => {
 
 app.use("/books", booksRoute);
 
-mongoose
-  .connect(mongoDBURL, {
-    maxPoolSize: 10,
-    keepAlive: true,
-    keepAliveInitialDelay: 300000,
-    serverSelectionTimeoutMS: 5000,
-    autoReconnect: true,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 5000,
-  })
-  .then(() => {
+async function connectToDatabase() {
+  try {
+    await mongoose.connect(mongoDBURL, {
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+      family: 4,
+    });
     console.log("App connected to db");
+    return true;
+  } catch (error) {
+    console.log("Error connecting to the database:", error);
+    return false;
+  }
+}
+
+async function startServer() {
+  const isConnected = await connectToDatabase();
+  if (isConnected) {
     app.listen(PORT, () => {
       console.log(`App listening on port ${PORT}!`);
     });
-  })
-  .catch((error) => {
-    console.log("Error connecting to the database:", error);
-  });
+  } else {
+    console.log("Failed to start server due to database connection error");
+    process.exit(1);
+  }
+}
 
 mongoose.connection.on("connected", () => {
   console.log("Mongoose connected to db");
@@ -63,9 +71,15 @@ mongoose.connection.on("disconnected", () => {
   console.log("Mongoose disconnected");
 });
 
-process.on("SIGINT", () => {
-  mongoose.connection.close(() => {
+process.on("SIGINT", async () => {
+  try {
+    await mongoose.connection.close();
     console.log("Mongoose connection disconnected through app termination");
     process.exit(0);
-  });
+  } catch (error) {
+    console.error("Error closing Mongoose connection:", error);
+    process.exit(1);
+  }
 });
+
+startServer();
