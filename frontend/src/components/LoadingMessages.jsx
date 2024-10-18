@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const LoadingMessages = () => {
   const messages = [
-    "Please wait, the database is very far away, so it is taking long time.",
-    "Arriving in 1 minute...",
-    "Be patient, the first time loading takes time, then it won't!",
     "Just fetching your data, please hang tight!",
     "Almost there, hold on a little longer!",
     "Fetching data... Did you know patience is a virtue?",
@@ -15,7 +12,6 @@ const LoadingMessages = () => {
     "Still loading... It’s running on dial-up speed!",
     "Grabbing your data... slowly but surely!",
     "The database is taking the scenic route.",
-    "We’re almost there... If by 'almost' we mean 'eventually'.",
   ];
 
   const [currentMessage, setCurrentMessage] = useState(messages[0]);
