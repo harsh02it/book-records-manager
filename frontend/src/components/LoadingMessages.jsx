@@ -40,7 +40,7 @@ const LoadingMessages = () => {
   }, [currentMessage]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "10px" }}>
+    <div class="text-center my-20">
       <p>{currentMessage}</p>
     </div>
   );
