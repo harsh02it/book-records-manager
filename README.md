@@ -5,7 +5,6 @@
 
 This is a simple Book Store Project built using the MERN (MongoDB, Express.js, React, and Node.js) stack. This project demonstrates basic CRUD (Create, Read, Update, Delete) operations on both the backend and frontend, including routing and CORS policy configuration.
 
-Video Tutorial: https://www.youtube.com/watch?v=-42K44A1oMA&t=4s
 ## Features
 
 - **Backend CRUD:** The backend of this project provides CRUD operations for managing books. You can create, read, update, and delete books using the API endpoints.
@@ -70,17 +69,3 @@ npm run dev
 
 - Vite
 - React
-
-
-
-## Contact
-
-If you have any questions, feedback, or would like to connect, feel free to reach out to me.
-
-- **Name:** Yusufhan Saçak
-- **Email:** yusufhan.sacak@bahcesehir.edu.tr
-- **Website:** https://medium.com/@yusufhansacak
-- **Twitter:** [@0xSCK](https://twitter.com/0xSCK)
-- **LinkedIn:** [Yusufhan Saçak](https://www.linkedin.com/in/yusufhansacak/)
-
-Feel free to contact me through any of the channels above. I'm open to collaborations and discussions related to Flutter development or any other projects.
